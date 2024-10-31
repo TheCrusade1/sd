@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Projects\\SendIt\\Source\\SendIt\\SendIt.Build.cs",
+		"C:\\Projects\\SendIt\\Source\\SendIt.Target.cs",
+		"C:\\Projects\\SendIt\\Source\\SendItEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}

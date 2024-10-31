@@ -1,0 +1,43 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\projects\\sendit\\source\\sendit\\playercontrollerbb.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\projects\\sendit\\intermediate\\build\\win64\\x64\\senditeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "c:\\projects\\sendit\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\sendit\\definitions.sendit.h",
+            "c:\\projects\\sendit\\source\\sendit\\playercontrollerbb.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputaction.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputmodifiers.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputactionvalue.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputactionvalue.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputmodifiers.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputtriggers.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputtriggers.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputaction.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputmappingquery.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputmappingquery.generated.h",
+            "c:\\projects\\sendit\\intermediate\\build\\win64\\unrealeditor\\inc\\sendit\\uht\\playercontrollerbb.generated.h",
+            "c:\\projects\\sendit\\source\\sendit\\characters\\c_ch_carbase.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\experimental\\chaosvehiclesplugin\\source\\chaosvehicles\\public\\wheeledvehiclepawn.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\experimental\\chaosvehiclesplugin\\intermediate\\build\\win64\\unrealeditor\\inc\\chaosvehicles\\uht\\wheeledvehiclepawn.generated.h",
+            "c:\\projects\\sendit\\intermediate\\build\\win64\\unrealeditor\\inc\\sendit\\uht\\c_ch_carbase.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedinputcomponent.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputcomponent.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedinputsubsystems.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedinputsubsysteminterface.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedplayerinput.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedplayerinput.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedactionkeymapping.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedactionkeymapping.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\playermappablekeyslot.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\playermappablekeyslot.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputsubsysteminterface.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputsubsystems.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedinputworldprocessor.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\source\\runtime\\slate\\public\\framework\\application\\iinputprocessor.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "SendIt",
+			"Path": "..\\Source\\SendIt.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "SendItEditor",
+			"Path": "..\\Source\\SendItEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\SendIt.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SendIt.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\SendItEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\SendIt">
+      <UniqueIdentifier>{4083388B-ABBF-3B63-8E6F-A29FC5137DC5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\SendIt\SendIt.Build.cs">
+      <Filter>Source\SendIt</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\SendIt\SendIt.cpp">
+      <Filter>Source\SendIt</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SendIt\SendIt.h">
+      <Filter>Source\SendIt</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SendIt\SendItPlayerController.cpp">
+      <Filter>Source\SendIt</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SendIt\SendItPlayerController.h">
+      <Filter>Source\SendIt</Filter>
+    </ClInclude>
+    <Filter Include="Source\SendIt\Characters">
+      <UniqueIdentifier>{F1F2BECE-DCE8-35C1-8219-40F5E578E871}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SendIt\Characters\C_CH_CarBase.cpp">
+      <Filter>Source\SendIt\Characters</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SendIt\Characters\C_CH_CarBase.h">
+      <Filter>Source\SendIt\Characters</Filter>
+    </ClInclude>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-SendIt-0196.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\SendItEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.InclOrderUnreal5_0.h.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\C_CH_CarBase.gen.cpp.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\SendIt.init.gen.cpp.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\SendItPlayerController.gen.cpp.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\SendIt.cpp.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\SendItPlayerController.cpp.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\C_CH_CarBase.cpp.obj"
+"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\Default.rc2.res"
+/OUT:"C:\Projects\SendIt\Intermediate\Build\Win64\x64\UnrealEditor\Development\SendIt\UnrealEditor-SendIt-0196.lib"

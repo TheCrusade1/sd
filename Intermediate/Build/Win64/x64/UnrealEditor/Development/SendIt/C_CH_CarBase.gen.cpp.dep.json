@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\projects\\sendit\\intermediate\\build\\win64\\unrealeditor\\inc\\sendit\\uht\\c_ch_carbase.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\projects\\sendit\\intermediate\\build\\win64\\x64\\senditeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "c:\\projects\\sendit\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\sendit\\definitions.sendit.h",
+            "c:\\projects\\sendit\\source\\sendit\\characters\\c_ch_carbase.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\experimental\\chaosvehiclesplugin\\source\\chaosvehicles\\public\\wheeledvehiclepawn.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\experimental\\chaosvehiclesplugin\\intermediate\\build\\win64\\unrealeditor\\inc\\chaosvehicles\\uht\\wheeledvehiclepawn.generated.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputactionvalue.h",
+            "c:\\unreal5.3\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputactionvalue.generated.h",
+            "c:\\projects\\sendit\\intermediate\\build\\win64\\unrealeditor\\inc\\sendit\\uht\\c_ch_carbase.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
