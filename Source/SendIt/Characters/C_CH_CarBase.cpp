@@ -8,66 +8,68 @@
 #include "Camera/CameraComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "InputActionValue.h"
 #include "ChaosVehicleMovementComponent.h"
-#include "GameFramework/FloatingPawnMovement.h"
-#include "Engine/Engine.h"
 
+#define LOCTEXT_NAMESPACE "VehicleCar"
 
+DEFINE_LOG_CATEGORY(LogTemplateVehicle);
 
 AC_CH_CarBase::AC_CH_CarBase()
 {
-	SpringArmC = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	SpringArmC->SetupAttachment(RootComponent);
-	SpringArmC->TargetArmLength = 600;
-	SpringArmC->SetRelativeLocation(FVector(0, 0, 140));
-	SpringArmC->SetRelativeRotation(FRotator(-10, 0, 0));
+	// construct the front camera boom
+	FrontSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	FrontSpringArm->SetupAttachment(RootComponent);
+	FrontSpringArm->TargetArmLength = 600;
+	FrontSpringArm->SetRelativeLocation(FVector(0, 0, 140));
+	FrontSpringArm->SetRelativeRotation(FRotator(-10, 0, 0));
 
-	CameraC = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	CameraC->SetupAttachment(SpringArmC);
+	FrontCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	FrontCamera->SetupAttachment(FrontSpringArm);
 
-	Movement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Movement"));
+	// Configure the car mesh
+	GetMesh()->SetSimulatePhysics(true);
+	GetMesh()->SetCollisionProfileName(FName("Vehicle"));
 
-	MoveScale = 1.f;
-}
-
-void AC_CH_CarBase::BeginPlay()
-{
-	Super::BeginPlay();
-
-	
-	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
-	{
-		
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem< UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-		{
-			Subsystem->AddMappingContext(CarMappingContext, 0);
-		}
-	}
-}
-
-void AC_CH_CarBase::Move(const FInputActionValue& Value)
-{
-	const float DirectionValue = Value.Get<float>();
-
-	const float ThrottleValue = DirectionValue;
-
-	GetVehicleMovementComponent()->SetThrottleInput(ThrottleValue);
-
-	UE_LOG(LogTemp, Warning, TEXT("Value %f"), ThrottleValue);
-}
-
-void AC_CH_CarBase::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
+	// get the Chaos Wheeled movement component
+	ChaosVehicleMovement = CastChecked<UChaosWheeledVehicleMovementComponent>(GetVehicleMovement());
 }
 
 void AC_CH_CarBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
+	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AC_CH_CarBase::Move);
+		// throttle 
+		EnhancedInputComponent->BindAction(ThrottleAction, ETriggerEvent::Triggered, this, &AC_CH_CarBase::Throttle);
+		EnhancedInputComponent->BindAction(ThrottleAction, ETriggerEvent::Completed, this, &AC_CH_CarBase::Throttle);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("'%s' Failed to find an Enhanced Input component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
 }
 
+void AC_CH_CarBase::Tick(float Delta)
+{
+	Super::Tick(Delta);
+
+	// add some angular damping if the vehicle is in midair
+	bool bMovingOnGround = ChaosVehicleMovement->IsMovingOnGround();
+	GetMesh()->SetAngularDamping(bMovingOnGround ? 0.0f : 3.0f);
+
+}
+
+void AC_CH_CarBase::Throttle(const FInputActionValue& Value)
+{
+	// get the input magnitude for the throttle
+	float ThrottleValue = Value.Get<float>();
+
+	// add the input
+	ChaosVehicleMovement->SetThrottleInput(ThrottleValue);
+
+}
+
+
+#undef LOCTEXT_NAMESPACE

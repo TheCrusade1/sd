@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "WheeledVehiclePawn.h"
-#include "C_CH_CarBase.generated.h"
+#include "MyProject2Pawn.generated.h"
 
 class UCameraComponent;
 class USpringArmComponent;
@@ -22,7 +22,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogTemplateVehicle, Log, All);
  *  Specific vehicle configurations are handled in subclasses.
  */
 UCLASS(abstract)
-class AC_CH_CarBase : public AWheeledVehiclePawn
+class AMyProject2Pawn : public AWheeledVehiclePawn
 {
 	GENERATED_BODY()
 
