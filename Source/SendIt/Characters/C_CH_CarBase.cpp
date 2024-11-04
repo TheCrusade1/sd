@@ -9,7 +9,9 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
-#include "ChaosVehicleMovementComponent.h"
+#include "ChaosWheeledVehicleMovementComponent.h"
+
+#include "Engine/Engine.h"
 
 #define LOCTEXT_NAMESPACE "VehicleCar"
 
@@ -17,25 +19,20 @@ DEFINE_LOG_CATEGORY(LogTemplateVehicle);
 
 AC_CH_CarBase::AC_CH_CarBase()
 {
-	// construct the front camera boom
-	FrontSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	FrontSpringArm->SetupAttachment(RootComponent);
-	FrontSpringArm->TargetArmLength = 600;
-	FrontSpringArm->SetRelativeLocation(FVector(0, 0, 140));
-	FrontSpringArm->SetRelativeRotation(FRotator(-10, 0, 0));
+	SpringArmC = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	SpringArmC->SetupAttachment(RootComponent);
+	SpringArmC->TargetArmLength = 600;
+	SpringArmC->SetRelativeLocation(FVector(0, 0, 140));
+	SpringArmC->SetRelativeRotation(FRotator(-10, 0, 0));
 
-	FrontCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	FrontCamera->SetupAttachment(FrontSpringArm);
-
-	// Configure the car mesh
-	GetMesh()->SetSimulatePhysics(true);
-	GetMesh()->SetCollisionProfileName(FName("Vehicle"));
+	CameraC = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	CameraC->SetupAttachment(SpringArmC);
 
 	// get the Chaos Wheeled movement component
 	ChaosVehicleMovement = CastChecked<UChaosWheeledVehicleMovementComponent>(GetVehicleMovement());
 }
 
-void AC_CH_CarBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void AC_CH_CarBase::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
@@ -47,9 +44,12 @@ void AC_CH_CarBase::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("'%s' Failed to find an Enhanced Input component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
+		UE_LOG(LogTemplateVehicle, Error, TEXT("'%s' Failed to find an Enhanced Input component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
+
+
 }
+
 
 void AC_CH_CarBase::Tick(float Delta)
 {
@@ -58,7 +58,6 @@ void AC_CH_CarBase::Tick(float Delta)
 	// add some angular damping if the vehicle is in midair
 	bool bMovingOnGround = ChaosVehicleMovement->IsMovingOnGround();
 	GetMesh()->SetAngularDamping(bMovingOnGround ? 0.0f : 3.0f);
-
 }
 
 void AC_CH_CarBase::Throttle(const FInputActionValue& Value)
@@ -69,7 +68,8 @@ void AC_CH_CarBase::Throttle(const FInputActionValue& Value)
 	// add the input
 	ChaosVehicleMovement->SetThrottleInput(ThrottleValue);
 
+	UE_LOG(LogTemp, Warning, TEXT("Value %f"), ThrottleValue);
 }
 
-
 #undef LOCTEXT_NAMESPACE
+

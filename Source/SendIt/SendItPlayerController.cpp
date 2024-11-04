@@ -1,27 +1,34 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SendItPlayerController.h"
-#include "InputAction.h"
-#include "InputMappingContext.h"
-#include <EnhancedInputComponent.h>
-#include "Characters/C_CH_CarBase.h"
+#include "Characters\C_CH_CarBase.h"
+#include "EnhancedInputSubsystems.h"
+#include "ChaosWheeledVehicleMovementComponent.h"
 
-void ASendItPlayerController::SetupInputComponent()
+void ASendItPlayerController::BeginPlay()
 {
-	Super::SetupInputComponent();
+	Super::BeginPlay();
 
-	// Create these objects here and anot in constructor because we only need them on the client.
-	PawnMappingContext = NewObject<UInputMappingContext>(this);
+	// get the enhanced input subsystem
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
+	{
+		// add the mapping context so we get controls
+		Subsystem->AddMappingContext(InputMappingContext, 0);
+	}
 
-	MoveAction = NewObject<UInputAction>(this);
-	
-	//VECTOR3D
-	//MoveAction->ValueType = EInputActionValueType::Axis3D;
-	
-	//FLOAT
-	//MoveAction->ValueType = EInputActionValueType::Axis1D;
-	//PawnMappingContext->MapKey(MoveAction, EKeys::W);
-
-	
 }
 
+void ASendItPlayerController::Tick(float Delta)
+{
+	Super::Tick(Delta);
+
+
+}
+
+void ASendItPlayerController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+
+	// get a pointer to the controlled pawn
+	VehicleCar = CastChecked<AC_CH_CarBase>(InPawn);
+}

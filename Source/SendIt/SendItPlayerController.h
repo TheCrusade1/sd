@@ -6,23 +6,44 @@
 #include "GameFramework/PlayerController.h"
 #include "SendItPlayerController.generated.h"
 
+class UInputMappingContext;
+class AC_CH_CarBase;
+
 /**
- * 
+ *  Vehicle Player Controller class
+ *  Handles input mapping and user interface
  */
-UCLASS()
+
+UCLASS(abstract)
 class SENDIT_API ASendItPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
+protected:
+
+	/** Input Mapping Context to be used for player input */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	UInputMappingContext* InputMappingContext;
+
+	/** Pointer to the controlled vehicle pawn */
+	TObjectPtr<AC_CH_CarBase> VehicleCar;
+
+	// Begin Actor interface
+protected:
+
+	virtual void BeginPlay() override;
+
 public:
-	/** Setup input actions and context mappings for player. */
-	virtual void SetupInputComponent() override;
 
-	/** Mapping context used for pawn control. */
-	UPROPERTY()
-	class UInputMappingContext* PawnMappingContext;
+	virtual void Tick(float Delta) override;
 
-	/** Action to update location. */
-	UPROPERTY()
-	class UInputAction* MoveAction;
+	// End Actor interface
+
+	// Begin PlayerController interface
+protected:
+
+	virtual void OnPossess(APawn* InPawn) override;
+
+	// End PlayerController interface
 };
+
